@@ -1,0 +1,122 @@
+import java.util.Scanner;
+public class Luz {
+
+	public static void main(String[] args) {
+		
+		//---Vars---
+		
+		Scanner in = new Scanner(System.in);
+		
+		String cor_obj;
+		String cor_luz;
+		String cor_vista = "0";
+		
+		int objt = 0;
+		int luz = 0;
+		int res = 0;
+		
+		boolean equal = false;
+		
+		//---Code---
+		
+		//Parte 1: Objeto a ser visto
+		
+		System.out.println("{ Que cor você vê? }");
+		System.out.println("");
+		System.out.println("Digite em minusculo a cor do objeto que está sendo visualizado");
+		cor_obj = in.nextLine();
+		
+		if (cor_obj.equals("preto")) {
+			
+			objt = 0;
+			
+		} else {
+		
+		if (cor_obj.equals("branco")) {
+			
+			objt = 1;
+			
+		} else {
+			
+			objt = 2;
+			
+		}
+			
+		}
+		
+		//Parte 2: Luz presente
+		
+		System.out.println("");
+		System.out.println("Digite em minusculo a cor da luz que está iluminando o objeto");
+		System.out.println("(Se for uma luz comum, como a do sol, coloque 'branco')");
+		cor_luz = in.nextLine();
+		
+		if (cor_luz.equals("preto")) {
+			
+			luz = 0;
+			
+		} else {
+		
+		if (cor_luz.equals("branco")) {
+			
+			luz = 1;
+			
+		} else {
+			
+			luz = 2;
+			
+		}
+		
+		}
+		
+		//Parte 3: Luz que você verá
+		
+		res = luz * objt;
+		
+		//corrigir com boolean
+		
+		
+		
+		if (cor_luz.equals(cor_obj) & res == 4) {
+			
+			cor_vista = cor_obj;
+			equal = false;
+			
+		} else {
+			
+			equal = true;
+			
+		}
+			
+		if (cor_luz != cor_obj & res == 4 & equal == true) {
+				
+			cor_vista = "preto";
+			
+		}
+		
+		if (res == 0) {
+			
+			cor_vista = "preto";
+			
+		} if (res == 1) {
+			
+			cor_vista = "branco";
+			
+		} if (res == 2) {
+				
+			cor_vista = "Cor do objeto ou cor da luz, neste caso seria o qual não é branco";
+			
+		} if (cor_vista.equals("0")) {
+			
+			cor_vista = "preto";
+			
+		}
+		
+		System.out.println(" ");
+		System.out.println("Você vê o objeto da cor: " + cor_vista);
+		
+		in.close();
+
+	}
+
+}
